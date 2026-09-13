@@ -59,10 +59,10 @@ body {
     /* transparency/blur options */
     /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
     --transparency-tweaks: on; /* off: no changes, on: remove some elements for better transparency */
-    --remove-bg-layer: on; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --remove-bg-layer: off; /* off: keep background image, on: remove base --bg-3 layer (WILL OVERRIDE BACKGROUND IMAGE) */
     --panel-blur: on; /* off: no changes, on: blur the background of panels */
-    --blur-amount: 20px; /* amount of blur */
-    --bg-floating: hsla(0, 0%, 8%, 0.6); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+    --blur-amount: 22px; /* amount of blur */
+    --bg-floating: hsla(0, 0%, 6%, 0.35); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
 
     /* other options */
     --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
@@ -96,14 +96,14 @@ body {
     --text-5: #b8b8b866; /* muted channels/chats and timestamps */
 
     /* background and dark colors (ALTA TRANSPARENCIA para que se vea mucho la imagen de fondo) */
-    --bg-1: hsla(0, 0%, 22%, 0.5); /* dark buttons when clicked */
-    --bg-2: hsla(0, 0%, 15%, 0.45); /* dark buttons */
-    --bg-3: hsla(0, 0%, 8%, 0.35); /* spacing, secondary elements */
-    --bg-4: hsla(0, 0%, 5%, 0.4); /* main background color */
-    --hover: hsla(0, 0%, 50%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(0, 0%, 50%, 0.15); /* channels and buttons when clicked or selected */
-    --active-2: hsla(0, 0%, 50%, 0.25); /* extra state for transparent buttons */
-    --message-hover: hsla(0, 0%, 0%, 0.08); /* messages when hovered */
+    --bg-1: hsla(0, 0%, 22%, 0.35); /* dark buttons when clicked */
+    --bg-2: hsla(0, 0%, 15%, 0.28); /* dark buttons */
+    --bg-3: hsla(0, 0%, 8%, 0.22); /* spacing, secondary elements */
+    --bg-4: hsla(0, 0%, 5%, 0.18); /* main background color */
+    --hover: hsla(0, 0%, 50%, 0.06); /* channels and buttons when hovered */
+    --active: hsla(0, 0%, 50%, 0.12); /* channels and buttons when clicked or selected */
+    --active-2: hsla(0, 0%, 50%, 0.2); /* extra state for transparent buttons */
+    --message-hover: hsla(0, 0%, 0%, 0.05); /* messages when hovered */
 
     /* accent colors */
     --accent-1: var(--red-1); /* links and other accent text */
@@ -160,4 +160,263 @@ body {
     --purple-3: #c04848;
     --purple-4: hsl(0, 55%, 62%);
     --purple-5: hsl(0, 55%, 52%);
+}
+
+/* =========================================================
+   OVERRIDES FORZADOS: FONDO GLOBAL + GLASSMORPHISM
+   ========================================================= */
+
+/* ---------- IMAGEN DE FONDO EN TODA LA APP ---------- */
+html,
+body,
+#app-mount {
+    background-color: #0a0607 !important;
+    background-image: url('https://cdn.discordapp.com/attachments/1534656820319228045/1548510927912046712/rog-abstract-eu.jpg?ex=6aa752af&is=6aa6012f&hm=2c22b5b6231e823cd14065f54008388b503f52797701a0ee8a518f2c5ea30893&') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+/* ---------- QUITAR CAPAS OPACAS INTERMEDIAS ---------- */
+.app-2xdlyJ,
+.bg-h5JY_x,
+.layer-86YKbF,
+.layers-OrUESM,
+.container-1eFtFS,
+.base-2jDfDU,
+.content-1jQy8h,
+.chat-2ZfjoI,
+.noChat-1p-R2x,
+.themedBackground-2Pc7iN,
+.background-3dSJ7f,
+.background-1QIAus,
+.backgroundWrapper-3MDLzl,
+.container-2o3qEW {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Quitar gradientes superpuestos en server list */
+.scroller-3X7KbA::before,
+.scroller-3X7KbA::after,
+.container-1eFtFS::before,
+.scroller-1sw30G::before,
+.scroller-WSmht3::before {
+    display: none !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+/* Scrollers transparentes */
+.scroller-1sw30G,
+.scroller-2FKFPG,
+.scroller-WSmht3,
+.scroller-3X7KbA,
+.scroller-kQBbkU,
+.auto-2K3UW5,
+.messages-23canv,
+.messagesWrapper-RpOMA3 {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* ---------- LISTA DE SERVIDORES (SIDEBAR IZQ) GLASS ---------- */
+.sidebar-1tnWFu,
+.wrapper-1_HaEi,
+.guilds-2JjMmN {
+    background: hsla(0, 0%, 6%, 0.35) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border-right: 1px solid rgba(229, 57, 53, 0.15) !important;
+}
+
+/* ---------- LISTA DE CANALES GLASS ---------- */
+.sidebar_a4d4d9,
+.containerDefault-3TQ5YN,
+.containerDragAfter-2qC5Zm,
+.containerDragBefore-24M93q,
+.container-1NXEtd,
+.privateChannels-oVe7HL {
+    background: hsla(0, 0%, 5%, 0.28) !important;
+    backdrop-filter: blur(16px) saturate(145%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(145%) !important;
+}
+
+/* ---------- CABECERA DEL CANAL GLASS ---------- */
+.title-31SJ6t,
+.container-ZMc96U.themed-Hp1KC_,
+.toolbar-3_jAJf {
+    background: hsla(0, 0%, 6%, 0.45) !important;
+    backdrop-filter: blur(22px) saturate(155%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(155%) !important;
+    border-bottom: 1px solid rgba(229, 57, 53, 0.15) !important;
+}
+
+/* ---------- LISTA DE MIEMBROS (DERECHA) GLASS ---------- */
+.members-3WRCEx,
+.membersWrap-3NUR2t,
+.container-3wLKDe {
+    background: hsla(0, 0%, 5%, 0.28) !important;
+    backdrop-filter: blur(16px) saturate(145%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(145%) !important;
+    border-left: 1px solid rgba(229, 57, 53, 0.15) !important;
+}
+
+/* ---------- PANEL DE USUARIO (ABAJO IZQ) GLASS ---------- */
+.panels-3wFtMD,
+.container-1zzFcN,
+.voiceChannelsPanel-3sYjC8 {
+    background: hsla(0, 0%, 6%, 0.5) !important;
+    backdrop-filter: blur(22px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
+    border-top: 1px solid rgba(229, 57, 53, 0.15) !important;
+}
+
+/* ---------- CAJA DE TEXTO (INPUT CHAT) GLASS ---------- */
+.channelTextArea-1FufC0,
+.channelTextArea-2VhZ6z,
+.scrollableContainer-15eg7h,
+.webkit-QgSAqd {
+    background: hsla(0, 0%, 6%, 0.5) !important;
+    backdrop-filter: blur(22px) saturate(155%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(155%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 14px !important;
+    margin: 0 16px 16px !important;
+}
+
+/* ---------- MODALES / VENTANAS GLASS ---------- */
+.modal-2RCotw,
+.root-22UymS,
+.modal-yWgWj-,
+.modalContent-3Avnno,
+.modalRoot-3t2UzB {
+    background: hsla(0, 0%, 6%, 0.65) !important;
+    backdrop-filter: blur(28px) saturate(165%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(165%) !important;
+    border: 1px solid rgba(229, 57, 53, 0.2) !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(229, 57, 53, 0.1) !important;
+}
+
+/* ---------- POPOUTS / MENÚS DESPLEGABLES GLASS ---------- */
+.popout-2UzE-j,
+.menu-1QACrS,
+.submenuPaddingContainer-2Sb2s_,
+.layer-v9HyYc,
+.autocomplete-3jH4KC,
+.menu-1QACrS[id*="context-menu"] {
+    background: hsla(0, 0%, 6%, 0.6) !important;
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ---------- QUICK SWITCHER (Ctrl+K) GLASS ---------- */
+.quickswitcher-3JagVE,
+.scroller-2MpO10,
+.input-2_4q9z {
+    background: hsla(0, 0%, 6%, 0.65) !important;
+    backdrop-filter: blur(28px) saturate(165%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(165%) !important;
+    border: 1px solid rgba(229, 57, 53, 0.2) !important;
+}
+
+/* ---------- SETTINGS / AJUSTES GLASS ---------- */
+.standardSidebarView-E9Pc3j,
+.contentRegion-3HkfJJ,
+.contentRegionScroller-2_GT_N,
+.sidebar-nqHbhN,
+.side-2ur1Qk {
+    background: transparent !important;
+}
+
+.sidebarRegion-1VBisG {
+    background: hsla(0, 0%, 5%, 0.3) !important;
+    backdrop-filter: blur(16px) saturate(145%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(145%) !important;
+}
+
+.contentColumnDefault-3eyv5o,
+.contentColumnWide-2Z5D_g,
+.contentColumn-1r1jXQ {
+    background: hsla(0, 0%, 6%, 0.4) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 14px !important;
+    padding: 24px !important;
+    margin: 16px !important;
+}
+
+/* ---------- INPUT FIELDS / FORMULARIOS GLASS ---------- */
+.inputDefault-3FGxgL,
+.input-2g-os5,
+.inputField-2hAEPN,
+.input-3X4gK5,
+.search-2Mwzzq .searchBar-3TnChZ,
+.searchBar-3TnChZ {
+    background: hsla(0, 0%, 0%, 0.35) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* ---------- EMBEDS / TARJETAS DE MENSAJE GLASS ---------- */
+.embedWrapper-1MtIDg,
+.embedFull-1HGV2S,
+.grid-1aHMVv,
+.embedMedia-1bX-2m {
+    background: hsla(0, 0%, 5%, 0.35) !important;
+    backdrop-filter: blur(10px) saturate(135%) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(135%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* ---------- TOOLTIPS GLASS ---------- */
+.tooltip-14MtrL,
+.tooltip-2s7kRd {
+    background: hsla(0, 0%, 6%, 0.7) !important;
+    backdrop-filter: blur(12px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+/* ---------- PICKER DE EMOJIS / REACCIONES GLASS ---------- */
+.picker-1Ia5pz,
+.contentWrapper-3NEZqs,
+.categoryFadeBlurple-3T7zOu {
+    background: hsla(0, 0%, 6%, 0.6) !important;
+    backdrop-filter: blur(20px) saturate(155%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(155%) !important;
+}
+
+/* ---------- SCROLLBARS CUSTOM ---------- */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.18) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(229, 57, 53, 0.45) !important;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(229, 57, 53, 0.7) !important;
+    background-clip: content-box;
+    border: 2px solid transparent;
+}
+
+.thin-RnSY0a::-webkit-scrollbar-thumb,
+.scrollerBase-289Jih::-webkit-scrollbar-thumb {
+    background: rgba(229, 57, 53, 0.38) !important;
+    background-clip: content-box;
 }
